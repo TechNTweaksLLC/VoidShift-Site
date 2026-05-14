@@ -1,57 +1,556 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tech N Tweaks LLC</title>
-    <meta name="description" content="Tech N Tweaks LLC develops mobile games and apps including VoidShift for iPhone.">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tech N Tweaks</title>
+  <meta name="description" content="Tech N Tweaks builds technology, AI, software, and creative app projects including VoidShift.">
+  <script>
+    if (window.location.protocol === "file:") {
+      window.location.replace("http://localhost:4173/index.html");
+    }
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #030303;
+      --text: #f8f4ee;
+      --muted: #b7b1aa;
+      --dim: #7a746d;
+      --line: rgba(255,255,255,0.15);
+      --panel: rgba(255,255,255,0.065);
+      --cyan: #6ff3ff;
+      --green: #a8ff7a;
+      --pink: #ff67d8;
+      --mx: 0px;
+      --my: 0px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: auto; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% 16%, rgba(111,243,255,0.18), transparent 24rem),
+        radial-gradient(circle at 16% 62%, rgba(168,255,122,0.13), transparent 26rem),
+        radial-gradient(circle at 84% 68%, rgba(255,103,216,0.16), transparent 28rem),
+        linear-gradient(135deg, rgba(111,243,255,0.10), transparent 35%),
+        linear-gradient(225deg, rgba(255,103,216,0.10), transparent 38%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(circle, rgba(111,243,255,0.95) 0 1.25px, transparent 1.9px),
+        radial-gradient(circle, rgba(255,103,216,0.82) 0 1.35px, transparent 2px),
+        radial-gradient(circle, rgba(168,255,122,0.86) 0 1.3px, transparent 2px),
+        radial-gradient(circle, rgba(255,215,95,0.78) 0 1.15px, transparent 1.9px);
+      background-position: 0 0, 38px 61px, 91px 22px;
+      background-size: 180px 180px, 260px 260px, 330px 330px, 220px 220px;
+      opacity: 0.92;
+      animation: star-drift 48s linear infinite;
+      transform: translate3d(var(--mx), var(--my), 0);
+      transition: transform 260ms ease-out;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        radial-gradient(circle at calc(50% + var(--mx)) calc(18% + var(--my)), rgba(111,243,255,0.26), transparent 32rem),
+        radial-gradient(circle at calc(84% - var(--mx)) calc(64% - var(--my)), rgba(255,103,216,0.22), transparent 36rem),
+        radial-gradient(circle at calc(18% + var(--mx)) calc(70% - var(--my)), rgba(168,255,122,0.16), transparent 34rem);
+      background-size: 52px 52px, 52px 52px, auto, auto, auto;
+      mask-image: radial-gradient(circle at center, #000 0%, rgba(0,0,0,0.8) 42%, transparent 88%);
+    }
+
+    @keyframes star-drift {
+      from {
+        background-position: 0 0, 38px 61px, 91px 22px;
+      }
+
+      to {
+        background-position: 0 520px, -180px 700px, 220px 620px, 90px 580px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body::before {
+        animation: none;
+      }
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .wrap {
+      width: min(1160px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3,3,3,0.72);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 16px rgba(111,243,255,0.24));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      padding: 9px 12px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+      background: rgba(255,255,255,0.08);
+      outline: none;
+    }
+
+    .nav-cta {
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      place-items: center;
+      padding: 52px 0 68px;
+      text-align: center;
+    }
+
+    .logo-stage {
+      width: min(660px, 90vw);
+      margin: 0 auto 18px;
+      position: relative;
+      aspect-ratio: 1194 / 1118;
+      display: grid;
+      place-items: center;
+    }
+
+    .logo-stage::before {
+      content: "";
+      position: absolute;
+      inset: 6% 10%;
+      z-index: -1;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(111,243,255,0.24), rgba(255,103,216,0.14) 42%, transparent 70%);
+      filter: blur(34px);
+    }
+
+    .logo-stage img {
+      width: 100%;
+      filter:
+        drop-shadow(0 0 22px rgba(111,243,255,0.4))
+        drop-shadow(0 0 42px rgba(255,103,216,0.22));
+    }
+
+    .hero-card {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 34px);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03)),
+        rgba(255,255,255,0.045);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 28px 90px rgba(0,0,0,0.34);
+      backdrop-filter: blur(14px);
+      transition: transform 190ms ease, border-color 190ms ease, box-shadow 190ms ease, background 190ms ease;
+    }
+
+    .hero-card:hover,
+    .hero-card:focus-within {
+      transform: translateY(-4px);
+      border-color: rgba(111,243,255,0.52);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(111,243,255,0.16), transparent 30%),
+        radial-gradient(circle at 100% 100%, rgba(255,103,216,0.13), transparent 32%),
+        rgba(255,255,255,0.07);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 24px 70px rgba(0,0,0,0.38),
+        0 0 34px rgba(111,243,255,0.13);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { overflow-wrap: anywhere; }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 620px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.2vw, 22px);
+      line-height: 1.5;
+      font-weight: 650;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0 18px;
+      color: var(--text);
+      border: 2px solid rgba(111,243,255,0.76);
+      background:
+        linear-gradient(135deg, rgba(111,243,255,0.12), rgba(168,255,122,0.08)),
+        rgba(255,255,255,0.035);
+      font-weight: 900;
+      box-shadow:
+        inset 0 0 18px rgba(111,243,255,0.12),
+        0 0 16px rgba(111,243,255,0.18);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(168,255,122,0.9);
+      box-shadow:
+        inset 0 0 22px rgba(111,243,255,0.20),
+        0 0 22px rgba(111,243,255,0.28),
+        0 0 40px rgba(168,255,122,0.16);
+      outline: none;
+    }
+
+    .content {
+      padding: 34px 0 82px;
+      border-top: 1px solid var(--line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 14px;
+    }
+
+    .tile {
+      min-height: 250px;
+      position: relative;
+      overflow: hidden;
+      scroll-margin-top: 96px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(111,243,255,0.09), transparent 30%),
+        radial-gradient(circle at 100% 100%, rgba(255,103,216,0.08), transparent 32%),
+        rgba(255,255,255,0.052);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: transform 190ms ease, border-color 190ms ease, box-shadow 190ms ease, background 190ms ease;
+    }
+
+    a.tile {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .tile:hover,
+    .tile:focus-within {
+      transform: translateY(-4px);
+      border-color: rgba(111,243,255,0.52);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(111,243,255,0.16), transparent 30%),
+        radial-gradient(circle at 100% 100%, rgba(255,103,216,0.13), transparent 32%),
+        rgba(255,255,255,0.07);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 24px 70px rgba(0,0,0,0.38),
+        0 0 34px rgba(111,243,255,0.13);
+    }
+
+    .tile.feature {
+      grid-row: span 2;
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      align-content: start;
+      gap: 18px;
+    }
+
+    .ship-field {
+      grid-column: 1 / -1;
+      min-height: 220px;
+      position: relative;
+      margin-top: 10px;
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(111,243,255,0.11), transparent 34%),
+        radial-gradient(circle at 80% 24%, rgba(255,103,216,0.08), transparent 26%);
+      overflow: hidden;
+    }
+
+    .ship {
+      position: absolute;
+      width: 86px;
+      height: auto;
+      filter:
+        drop-shadow(0 0 10px rgba(111,243,255,0.52))
+        drop-shadow(0 0 22px rgba(255,103,216,0.22));
+      opacity: 0.94;
+    }
+
+    .ship.one {
+      left: 11%;
+      top: 38%;
+      transform: rotate(-18deg) scale(0.86);
+    }
+
+    .ship.two {
+      left: 44%;
+      top: 12%;
+      transform: rotate(6deg) scale(1.04);
+    }
+
+    .ship.three {
+      right: 10%;
+      top: 42%;
+      transform: rotate(20deg) scale(0.9);
+    }
+
+    .app-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 0 30px rgba(111,243,255,0.16);
+    }
+
+    .tile strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--text);
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .tile p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.48;
+      font-weight: 650;
+    }
+
+    .tile a {
+      color: var(--cyan);
+    }
+
+    .tile-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .tile-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border-radius: 999px;
+      padding: 0 14px;
+      border: 1px solid rgba(111,243,255,0.56);
+      background: rgba(255,255,255,0.045);
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    .tile-link:hover,
+    .tile-link:focus-visible {
+      border-color: rgba(168,255,122,0.84);
+      box-shadow: 0 0 18px rgba(111,243,255,0.18);
+      outline: none;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 30px 0 44px;
+      border-top: 1px solid var(--line);
+      color: var(--dim);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .hero { min-height: auto; padding-top: 32px; }
+      .logo-stage { width: min(520px, 92vw); }
+      .grid { grid-template-columns: 1fr; }
+      .tile.feature { grid-row: auto; }
+      .ship-field { min-height: 170px; }
+    }
+
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      .nav-inner { min-height: 66px; }
+      .brand span { font-size: 16px; }
+      .hero-card { text-align: left; }
+      .actions .button { width: 100%; }
+      .tile.feature { grid-template-columns: 1fr; }
+      .app-icon { width: 86px; height: 86px; }
+    }
+  </style>
 </head>
 <body>
-    <header class="site-header">
-        <a class="brand" href="index.html" aria-label="Tech N Tweaks LLC home">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <span>Tech N Tweaks LLC</span>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="Tech N Tweaks home">
+        <img src="assets/TNTs Logo.png" alt="Tech N Tweaks logo">
+        <span>Tech N Tweaks</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
+        <a class="nav-cta" href="mailto:support@techntweaks.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="logo-stage">
+          <img src="assets/TNTs Logo.png" alt="Tech N Tweaks neon triangle logo">
+        </div>
+
+        <div class="hero-card">
+          <p class="eyebrow">Tech, AI, and software development</p>
+          <h1>Tech N Tweaks</h1>
+          <p class="lead">Tech N Tweaks builds technology projects across AI, software, creative tools, apps, and games. VoidShift is the latest public project from the studio.</p>
+          <div class="actions">
+            <a class="button" href="support.html">Get Support</a>
+            <a class="button secondary" href="privacy.html">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content wrap" aria-label="VoidShift and support information">
+      <div class="grid">
+        <a class="tile feature" href="https://apps.apple.com/us/app/voidshift/id6764814433" target="_blank" rel="noopener" aria-label="Open VoidShift on the App Store">
+          <img class="app-icon" src="assets/app-icon.png" alt="VoidShift app icon">
+          <div>
+            <strong>VoidShift</strong>
+            <p>A neon arcade space shooter built around waves, ship upgrades, boss fights, and one-more-run momentum.</p>
+          </div>
+          <div class="ship-field" aria-hidden="true">
+            <img class="ship one" src="assets/player-ship-classic.png" alt="">
+            <img class="ship two" src="assets/player-ship-void.png" alt="">
+            <img class="ship three" src="assets/player-ship-obsidian.png" alt="">
+          </div>
+          <div class="tile-actions">
+            <span class="tile-link">View on App Store</span>
+            <span class="tile-link" onclick="event.preventDefault(); window.location.href='privacy.html';">VoidShift Privacy</span>
+          </div>
         </a>
-        <nav aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="support.html">Support</a>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-card">
-                <img class="app-icon hero-icon" src="app-icon.png" alt="VoidShift app icon">
-                <p class="eyebrow">Mobile games and apps</p>
-                <h1>Tech N Tweaks LLC</h1>
-                <p class="lead">Tech N Tweaks LLC develops mobile games and apps, including VoidShift, a fast neon arcade space shooter for iPhone.</p>
-                <div class="actions">
-                    <a class="button" href="support.html">Get Support</a>
-                    <a class="button secondary" href="privacy.html">Privacy Policy</a>
-                </div>
-            </div>
-        </section>
+        <a class="tile" href="agentic-workflows.html" aria-label="Read about Tech N Tweaks agentic workflows">
+          <strong>Tech + AI</strong>
+          <p>We explore AI workflows, software tools, automation, creative systems, and practical technology projects beyond any single app category.</p>
+        </a>
 
-        <section class="grid" aria-label="VoidShift features">
-            <div class="tile">
-                <strong>VoidShift</strong>
-                <p>A neon arcade space shooter built around waves, ship upgrades, boss fights, and one-more-run momentum.</p>
-            </div>
-            <div class="tile">
-                <strong>iPhone Games</strong>
-                <p>We build fast, polished mobile experiences with clear controls, responsive gameplay, and replayable progression.</p>
-            </div>
-            <div class="tile">
-                <strong>Support</strong>
-                <p>For app support, privacy questions, or business inquiries, contact <a href="mailto:support@techntweaks.com">support@techntweaks.com</a>.</p>
-            </div>
-        </section>
-    </main>
+        <a id="support" class="tile" href="support.html" aria-label="Open Tech N Tweaks support">
+          <strong>Support</strong>
+          <p>For app support, privacy questions, or business inquiries, contact support@techntweaks.com.</p>
+        </a>
+      </div>
+    </section>
+  </main>
 
-    <footer class="site-footer">
-        <span>Copyright 2026 Tech N Tweaks LLC. All rights reserved.</span>
-    </footer>
+  <footer class="wrap">Copyright 2026 Tech N Tweaks. All rights reserved.</footer>
+
+  <script>
+    window.addEventListener("pointermove", (event) => {
+      const x = (event.clientX / window.innerWidth - 0.5) * 18;
+      const y = (event.clientY / window.innerHeight - 0.5) * 14;
+      document.documentElement.style.setProperty("--mx", `${x}px`);
+      document.documentElement.style.setProperty("--my", `${y}px`);
+    }, { passive: true });
+  </script>
 </body>
 </html>
