@@ -357,7 +357,7 @@
 
     .screenshots {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
       align-items: stretch;
     }
@@ -373,14 +373,10 @@
       box-shadow: 0 24px 70px rgba(0,0,0,0.34);
     }
 
-    .phone-shot.tall {
-      grid-row: span 2;
-    }
-
     .phone-shot img {
       width: 100%;
       height: 100%;
-      aspect-ratio: 9 / 16;
+      aspect-ratio: 600 / 1298;
       object-fit: cover;
       object-position: center top;
     }
@@ -595,7 +591,6 @@
       .grid { grid-template-columns: 1fr; }
       .voidshift-feature { padding-top: 30px; }
       .screenshots { grid-template-columns: repeat(3, 1fr); }
-      .phone-shot.tall { grid-row: auto; }
       .tile.feature { grid-row: auto; }
       .ship-field { min-height: 170px; }
       .site-footer { align-items: flex-start; flex-direction: column; }
@@ -668,14 +663,14 @@
         </div>
       </div>
       <div class="screenshots" aria-label="VoidShift gameplay screenshots">
-        <figure class="phone-shot tall">
-          <img src="assets/voidshift-gameplay-powerups.jpg" alt="VoidShift gameplay with power-ups and enemies">
+        <figure class="phone-shot">
+          <img src="assets/voidshift-ios-ad.jpg" alt="VoidShift App Store screenshot showing neon arcade action">
         </figure>
         <figure class="phone-shot">
-          <img src="assets/voidshift-boss-fight.jpg" alt="VoidShift boss fight gameplay">
+          <img src="assets/voidshift-ios-gameplay-1.jpg" alt="VoidShift iPhone gameplay screenshot">
         </figure>
         <figure class="phone-shot">
-          <img src="assets/voidshift-wormhole.jpg" alt="VoidShift wormhole transition gameplay">
+          <img src="assets/voidshift-ios-gameplay-2.jpg" alt="VoidShift iPhone gameplay screenshot with active combat">
         </figure>
       </div>
     </section>
