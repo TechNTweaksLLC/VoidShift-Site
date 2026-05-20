@@ -15,7 +15,7 @@
     @keyframes star-drift { from { background-position: 0 0, 38px 61px, 91px 22px; } to { background-position: 0 520px, -180px 700px, 220px 620px, 90px 580px; } }
     a { color: var(--cyan); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .wrap { width: min(980px, calc(100% - 36px)); margin: 0 auto; }
+    .wrap { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
     .nav { border-bottom: 1px solid var(--line); background: rgba(3,3,3,0.78); backdrop-filter: blur(18px); }
     .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--text); font-family: var(--display); font-weight: 900; }
@@ -32,12 +32,12 @@
     .eyebrow { color: var(--cyan); font-family: var(--display); font-size: 13px; font-weight: 950; letter-spacing: 0; text-transform: uppercase; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 26px; }
     .card { min-height: 190px; padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,0.055); }
-    .workflow-map { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 30px 0; }
-    .step { position: relative; min-height: 170px; padding: 18px; border: 1px solid rgba(111,243,255,0.26); border-radius: 14px; background: radial-gradient(circle at 14% 10%, rgba(111,243,255,0.11), transparent 34%), rgba(255,255,255,0.052); }
-    .step strong { display: block; margin-bottom: 8px; color: var(--text); font-family: var(--display); font-size: 20px; line-height: 1.1; }
-    .step span { color: var(--cyan); font-family: var(--display); font-size: 12px; font-weight: 950; letter-spacing: 0; text-transform: uppercase; }
-    .step p { margin-bottom: 0; font-size: 15px; }
-    .step:not(:last-child)::after { content: ""; position: absolute; top: 50%; right: -9px; width: 10px; height: 2px; background: rgba(111,243,255,0.72); box-shadow: 0 0 14px rgba(111,243,255,0.44); }
+    .workflow-map { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 32px 0; }
+    .step { position: relative; min-height: 176px; padding: 22px; border: 1px solid rgba(111,243,255,0.26); border-radius: 14px; background: radial-gradient(circle at 14% 10%, rgba(111,243,255,0.13), transparent 34%), radial-gradient(circle at 90% 100%, rgba(255,103,216,0.08), transparent 36%), rgba(255,255,255,0.052); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); }
+    .step strong { display: block; margin: 12px 0 8px; color: var(--text); font-family: var(--display); font-size: clamp(24px, 3vw, 32px); line-height: 1.05; }
+    .step span { display: inline-flex; min-width: 42px; min-height: 30px; align-items: center; justify-content: center; border: 1px solid rgba(111,243,255,0.42); border-radius: 999px; color: var(--cyan); background: rgba(0,0,0,0.18); font-family: var(--display); font-size: 12px; font-weight: 950; letter-spacing: 0; text-transform: uppercase; }
+    .step p { max-width: 17rem; margin-bottom: 0; font-size: 17px; line-height: 1.42; }
+    .step::after { content: ""; position: absolute; inset: auto 20px 0; height: 2px; background: linear-gradient(90deg, rgba(111,243,255,0.6), rgba(168,255,122,0.3), transparent); box-shadow: 0 0 14px rgba(111,243,255,0.18); }
     .principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 18px; }
     .principles .card { min-height: 150px; }
     .case-study { margin-top: 30px; padding: 24px; border: 1px solid rgba(111,243,255,0.24); border-radius: 14px; background: radial-gradient(circle at 12% 12%, rgba(111,243,255,0.12), transparent 34%), rgba(255,255,255,0.045); }
@@ -47,7 +47,7 @@
     .case-grid p { margin-bottom: 0; font-size: 15px; }
     footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 30px 0 44px; border-top: 1px solid var(--line); color: rgba(248,244,238,0.45); font-family: var(--display); font-size: 13px; font-weight: 750; }
     footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px; }
-    @media (max-width: 960px) { .workflow-map { grid-template-columns: repeat(3, 1fr); } .step:nth-child(3)::after { display: none; } }
+    @media (max-width: 960px) { .workflow-map { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 760px) { .grid, .principles, .case-grid { grid-template-columns: 1fr; } .workflow-map { grid-template-columns: 1fr; } .step::after { display: none; } .nav-inner, footer { align-items: flex-start; flex-direction: column; padding: 14px 0; } nav { flex-wrap: wrap; } footer nav { justify-content: flex-start; } }
   </style>
 </head>
