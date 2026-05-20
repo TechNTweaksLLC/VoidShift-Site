@@ -31,8 +31,9 @@
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 0 18px; color: var(--text); border: 2px solid rgba(111,243,255,0.76); background: rgba(255,255,255,0.035); box-shadow: inset 0 0 18px rgba(111,243,255,0.12), 0 0 16px rgba(111,243,255,0.18); font-weight: 900; }
     .button:hover, .button:focus-visible { border-color: rgba(168,255,122,0.9); box-shadow: inset 0 0 22px rgba(111,243,255,0.20), 0 0 22px rgba(111,243,255,0.28); text-decoration: none; outline: none; }
-    footer { padding: 30px 0 44px; border-top: 1px solid var(--line); color: rgba(248,244,238,0.45); font-size: 13px; font-weight: 750; }
-    @media (max-width: 640px) { .nav-inner { align-items: flex-start; flex-direction: column; padding: 14px 0; } nav { flex-wrap: wrap; } }
+    footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 30px 0 44px; border-top: 1px solid var(--line); color: rgba(248,244,238,0.45); font-size: 13px; font-weight: 750; }
+    footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px; }
+    @media (max-width: 640px) { .nav-inner, footer { align-items: flex-start; flex-direction: column; padding: 14px 0; } nav { flex-wrap: wrap; } footer nav { justify-content: flex-start; } }
   </style>
 </head>
 <body>
@@ -43,9 +44,10 @@
         <span>Tech N Tweaks</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="support.html">Support</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#voidshift">VoidShift</a>
+        <a href="agentic-workflows.html">AI Workflows</a>
+        <a href="index.html#about">About</a>
       </nav>
     </div>
   </header>
@@ -71,7 +73,14 @@
       <p>Read the <a href="privacy.html">VoidShift Privacy Policy</a> for information about data, purchases, analytics, and Game Center.</p>
     </article>
   </main>
-  <footer class="wrap">Copyright 2026 Tech N Tweaks LLC. All rights reserved.</footer>
+  <footer class="wrap">
+    <span>Copyright 2026 Tech N Tweaks LLC. All rights reserved.</span>
+    <nav aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:support@techntweaks.com">Email</a>
+    </nav>
+  </footer>
   <script>
     window.addEventListener("pointermove", (event) => {
       const x = (event.clientX / window.innerWidth - 0.5) * 18;

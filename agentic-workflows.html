@@ -20,6 +20,7 @@
     .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--text); font-weight: 900; }
     .brand img { width: 46px; height: 46px; object-fit: contain; }
     nav { display: flex; gap: 16px; color: var(--muted); font-weight: 800; }
+    nav a:hover { color: var(--text); }
     main { padding: 42px 0 64px; }
     .panel { padding: clamp(22px, 4vw, 38px); border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,0.06); }
     h1 { margin: 0; font-size: clamp(42px, 8vw, 76px); line-height: 1; }
@@ -28,8 +29,18 @@
     .eyebrow { color: var(--cyan); font-size: 13px; font-weight: 950; text-transform: uppercase; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 26px; }
     .card { min-height: 190px; padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,0.055); }
-    footer { padding: 30px 0 44px; border-top: 1px solid var(--line); color: rgba(248,244,238,0.45); font-size: 13px; font-weight: 750; }
-    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } .nav-inner { align-items: flex-start; flex-direction: column; padding: 14px 0; } nav { flex-wrap: wrap; } }
+    .workflow-map { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 30px 0; }
+    .step { position: relative; min-height: 170px; padding: 18px; border: 1px solid rgba(111,243,255,0.26); border-radius: 14px; background: radial-gradient(circle at 14% 10%, rgba(111,243,255,0.11), transparent 34%), rgba(255,255,255,0.052); }
+    .step strong { display: block; margin-bottom: 8px; color: var(--text); font-size: 20px; line-height: 1.1; }
+    .step span { color: var(--cyan); font-size: 12px; font-weight: 950; text-transform: uppercase; }
+    .step p { margin-bottom: 0; font-size: 15px; }
+    .step:not(:last-child)::after { content: ""; position: absolute; top: 50%; right: -9px; width: 10px; height: 2px; background: rgba(111,243,255,0.72); box-shadow: 0 0 14px rgba(111,243,255,0.44); }
+    .principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 18px; }
+    .principles .card { min-height: 150px; }
+    footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 30px 0 44px; border-top: 1px solid var(--line); color: rgba(248,244,238,0.45); font-size: 13px; font-weight: 750; }
+    footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px; }
+    @media (max-width: 960px) { .workflow-map { grid-template-columns: repeat(3, 1fr); } .step:nth-child(3)::after { display: none; } }
+    @media (max-width: 760px) { .grid, .principles { grid-template-columns: 1fr; } .workflow-map { grid-template-columns: 1fr; } .step::after { display: none; } .nav-inner, footer { align-items: flex-start; flex-direction: column; padding: 14px 0; } nav { flex-wrap: wrap; } footer nav { justify-content: flex-start; } }
   </style>
 </head>
 <body>
@@ -40,9 +51,10 @@
         <span>Tech N Tweaks</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="support.html">Support</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#voidshift">VoidShift</a>
+        <a href="agentic-workflows.html">AI Workflows</a>
+        <a href="index.html#about">About</a>
       </nav>
     </div>
   </header>
@@ -51,6 +63,14 @@
       <p class="eyebrow">Tech + AI</p>
       <h1>Agentic Workflows</h1>
       <p>Tech N Tweaks uses agentic development workflows to move faster across product ideas, software builds, creative assets, research, testing, and deployment prep.</p>
+      <div class="workflow-map" aria-label="Agentic workflow process">
+        <div class="step"><span>01</span><strong>Idea</strong><p>Define the product shape, constraints, audience, and what would make it worth shipping.</p></div>
+        <div class="step"><span>02</span><strong>Agent Plan</strong><p>Use OpenClaw, Hermes, Codex, and related agents to break the work into buildable slices.</p></div>
+        <div class="step"><span>03</span><strong>Build</strong><p>Implement the app, site, prototype, tooling, or creative system in small visible loops.</p></div>
+        <div class="step"><span>04</span><strong>QA</strong><p>Verify in browser, simulator, emulator, screenshots, logs, and real interaction paths.</p></div>
+        <div class="step"><span>05</span><strong>Polish</strong><p>Tighten visual identity, copy, performance, screenshots, assets, and release pages.</p></div>
+        <div class="step"><span>06</span><strong>Ship</strong><p>Commit, push, publish, monitor, and keep a rollback path for every meaningful release.</p></div>
+      </div>
       <div class="grid">
         <article class="card">
           <h2>OpenClaw</h2>
@@ -67,9 +87,27 @@
       </div>
       <h2>How We Use It</h2>
       <p>The goal is not to replace craft. The workflow combines human direction with AI-assisted execution: plan the product, build the first version, test it visibly, tighten the details, and repeat until the result feels real.</p>
+      <div class="principles">
+        <article class="card">
+          <h2>Visible verification</h2>
+          <p>We prefer proof over promises: running apps, screenshots, local previews, simulator checks, and live site validation.</p>
+        </article>
+        <article class="card">
+          <h2>Human taste stays in charge</h2>
+          <p>Agents accelerate the loop, but product direction, quality bar, and final taste decisions stay with the studio.</p>
+        </article>
+      </div>
     </section>
   </main>
-  <footer class="wrap">Copyright 2026 Tech N Tweaks LLC. All rights reserved.</footer>
+  <footer class="wrap">
+    <span>Copyright 2026 Tech N Tweaks LLC. All rights reserved.</span>
+    <nav aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:support@techntweaks.com">Email</a>
+    </nav>
+  </footer>
   <script>
     window.addEventListener("pointermove", (event) => {
       const x = (event.clientX / window.innerWidth - 0.5) * 18;
