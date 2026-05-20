@@ -6,6 +6,8 @@
   <title>Tech N Tweaks</title>
   <meta name="description" content="Tech N Tweaks builds technology, AI, software, and creative app projects including VoidShift.">
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Rajdhani:wght@500;600;700&display=swap");
+
     :root {
       color-scheme: dark;
       --bg: #030303;
@@ -19,6 +21,8 @@
       --pink: #ff67d8;
       --mx: 0px;
       --my: 0px;
+      --display: "Oxanium", ui-sans-serif, system-ui, sans-serif;
+      --body: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -35,7 +39,8 @@
         linear-gradient(135deg, rgba(111,243,255,0.10), transparent 35%),
         linear-gradient(225deg, rgba(255,103,216,0.10), transparent 38%),
         var(--bg);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--body);
+      line-height: 1.5;
       overflow-x: hidden;
     }
 
@@ -65,6 +70,7 @@
       z-index: -1;
       pointer-events: none;
       background-image:
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.026) 0 1px, transparent 1px 7px),
         linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
         radial-gradient(circle at calc(50% + var(--mx)) calc(18% + var(--my)), rgba(111,243,255,0.26), transparent 32rem),
@@ -86,6 +92,15 @@
 
     @media (prefers-reduced-motion: reduce) {
       body::before {
+        animation: none;
+      }
+
+      .logo-stage,
+      .hero-card,
+      .void-copy,
+      .phone-shot,
+      .tile,
+      .about-point {
         animation: none;
       }
     }
@@ -119,6 +134,7 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
+      font-family: var(--display);
       font-weight: 900;
       letter-spacing: 0;
     }
@@ -135,6 +151,7 @@
       align-items: center;
       gap: 8px;
       color: var(--muted);
+      font-family: var(--display);
       font-weight: 800;
     }
 
@@ -171,6 +188,7 @@
       position: relative;
       display: grid;
       place-items: center;
+      animation: rise-in 540ms ease both;
     }
 
     .logo-stage::before {
@@ -203,7 +221,30 @@
         rgba(255,255,255,0.045);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 28px 90px rgba(0,0,0,0.34);
       backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
       transition: transform 190ms ease, border-color 190ms ease, box-shadow 190ms ease, background 190ms ease;
+      animation: rise-in 620ms 80ms ease both;
+    }
+
+    .hero-card::before,
+    .void-copy::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background:
+        linear-gradient(90deg, transparent, rgba(111,243,255,0.26), rgba(168,255,122,0.18), transparent) top / 100% 2px no-repeat,
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 8px);
+      opacity: 0.72;
+    }
+
+    .hero-card > *,
+    .void-copy > * {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-card:hover,
@@ -223,9 +264,10 @@
     .eyebrow {
       margin: 0 0 12px;
       color: var(--cyan);
+      font-family: var(--display);
       font-size: 13px;
       font-weight: 950;
-      letter-spacing: 0.16em;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
@@ -233,6 +275,7 @@
 
     h1 {
       margin: 0;
+      font-family: var(--display);
       font-size: clamp(42px, 5.2vw, 64px);
       line-height: 0.98;
       letter-spacing: 0;
@@ -241,6 +284,7 @@
     h2 {
       margin: 0;
       color: var(--text);
+      font-family: var(--display);
       font-size: clamp(38px, 6vw, 76px);
       line-height: 0.98;
       letter-spacing: 0;
@@ -252,7 +296,7 @@
       color: var(--muted);
       font-size: clamp(17px, 1.8vw, 19px);
       line-height: 1.5;
-      font-weight: 650;
+      font-weight: 700;
     }
 
     .actions {
@@ -280,6 +324,7 @@
         linear-gradient(135deg, rgba(111,243,255,0.12), rgba(168,255,122,0.08)),
         rgba(255,255,255,0.035);
       font-weight: 900;
+      font-family: var(--display);
       box-shadow:
         inset 0 0 18px rgba(111,243,255,0.12),
         0 0 16px rgba(111,243,255,0.18);
@@ -322,12 +367,15 @@
       padding: clamp(24px, 4vw, 38px);
       border: 1px solid var(--line);
       border-radius: 14px;
+      position: relative;
+      overflow: hidden;
       background:
         radial-gradient(circle at 10% 10%, rgba(111,243,255,0.13), transparent 32%),
         radial-gradient(circle at 100% 100%, rgba(255,103,216,0.12), transparent 32%),
         rgba(255,255,255,0.06);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 24px 80px rgba(0,0,0,0.28);
       backdrop-filter: blur(14px);
+      animation: rise-in 560ms ease both;
     }
 
     .void-copy .app-icon {
@@ -337,7 +385,7 @@
     .void-copy p {
       color: var(--muted);
       font-size: 19px;
-      font-weight: 650;
+      font-weight: 700;
     }
 
     .proof-row {
@@ -355,6 +403,7 @@
       background: rgba(255,255,255,0.052);
       font-size: 13px;
       font-weight: 900;
+      font-family: var(--display);
     }
 
     .store-badge {
@@ -371,6 +420,7 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02)), #050505;
       box-shadow: 0 0 26px rgba(111,243,255,0.18), inset 0 1px 0 rgba(255,255,255,0.14);
       text-align: left;
+      font-family: var(--display);
       transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
     }
 
@@ -412,6 +462,15 @@
       border-radius: 14px;
       background: rgba(255,255,255,0.06);
       box-shadow: 0 24px 70px rgba(0,0,0,0.34);
+      animation: rise-in 520ms ease both;
+    }
+
+    .phone-shot:nth-child(2) {
+      animation-delay: 80ms;
+    }
+
+    .phone-shot:nth-child(3) {
+      animation-delay: 160ms;
     }
 
     .phone-shot img {
@@ -485,6 +544,7 @@
       display: block;
       margin-bottom: 12px;
       color: var(--text);
+      font-family: var(--display);
       font-size: clamp(30px, 4vw, 48px);
       line-height: 1;
       letter-spacing: 0;
@@ -495,7 +555,7 @@
       color: var(--muted);
       font-size: 18px;
       line-height: 1.48;
-      font-weight: 650;
+      font-weight: 700;
     }
 
     .tile a {
@@ -521,6 +581,7 @@
       background: rgba(255,255,255,0.045);
       color: var(--text);
       font-weight: 900;
+      font-family: var(--display);
     }
 
     .tile-link:hover,
@@ -542,7 +603,7 @@
       margin: 18px 0 0;
       color: var(--muted);
       font-size: 20px;
-      font-weight: 650;
+      font-weight: 700;
     }
 
     .about-points {
@@ -560,12 +621,14 @@
       background:
         radial-gradient(circle at 10% 12%, rgba(111,243,255,0.1), transparent 34%),
         rgba(255,255,255,0.045);
+      animation: rise-in 520ms ease both;
     }
 
     .about-point strong {
       display: block;
       margin-bottom: 10px;
       color: var(--text);
+      font-family: var(--display);
       font-size: 21px;
       line-height: 1.1;
     }
@@ -574,7 +637,7 @@
       margin: 0;
       color: var(--muted);
       font-size: 16px;
-      font-weight: 650;
+      font-weight: 700;
       line-height: 1.45;
     }
 
@@ -585,6 +648,7 @@
       color: var(--dim);
       font-size: 13px;
       font-weight: 750;
+      font-family: var(--display);
     }
 
     .site-footer {
@@ -603,6 +667,18 @@
 
     .site-footer a {
       color: var(--cyan);
+    }
+
+    @keyframes rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.985);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     @media (max-width: 820px) {
