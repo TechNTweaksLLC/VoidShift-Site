@@ -37,10 +37,15 @@
     .step:not(:last-child)::after { content: ""; position: absolute; top: 50%; right: -9px; width: 10px; height: 2px; background: rgba(111,243,255,0.72); box-shadow: 0 0 14px rgba(111,243,255,0.44); }
     .principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 18px; }
     .principles .card { min-height: 150px; }
+    .case-study { margin-top: 30px; padding: 24px; border: 1px solid rgba(111,243,255,0.24); border-radius: 14px; background: radial-gradient(circle at 12% 12%, rgba(111,243,255,0.12), transparent 34%), rgba(255,255,255,0.045); }
+    .case-study h2 { margin-top: 0; }
+    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+    .case-grid strong { display: block; color: var(--text); font-size: 20px; line-height: 1.1; }
+    .case-grid p { margin-bottom: 0; font-size: 15px; }
     footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 30px 0 44px; border-top: 1px solid var(--line); color: rgba(248,244,238,0.45); font-size: 13px; font-weight: 750; }
     footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px; }
     @media (max-width: 960px) { .workflow-map { grid-template-columns: repeat(3, 1fr); } .step:nth-child(3)::after { display: none; } }
-    @media (max-width: 760px) { .grid, .principles { grid-template-columns: 1fr; } .workflow-map { grid-template-columns: 1fr; } .step::after { display: none; } .nav-inner, footer { align-items: flex-start; flex-direction: column; padding: 14px 0; } nav { flex-wrap: wrap; } footer nav { justify-content: flex-start; } }
+    @media (max-width: 760px) { .grid, .principles, .case-grid { grid-template-columns: 1fr; } .workflow-map { grid-template-columns: 1fr; } .step::after { display: none; } .nav-inner, footer { align-items: flex-start; flex-direction: column; padding: 14px 0; } nav { flex-wrap: wrap; } footer nav { justify-content: flex-start; } }
   </style>
 </head>
 <body>
@@ -96,6 +101,24 @@
           <h2>Human taste stays in charge</h2>
           <p>Agents accelerate the loop, but product direction, quality bar, and final taste decisions stay with the studio.</p>
         </article>
+      </div>
+      <div class="case-study">
+        <h2>Current Studio Loop</h2>
+        <p>VoidShift, this site, and the release pages are built with the same operating pattern: make the product visible early, inspect the real result, then iterate until it feels ready to publish.</p>
+        <div class="case-grid" aria-label="Example workflow outcomes">
+          <div>
+            <strong>Design direction</strong>
+            <p>Turn rough feedback into concrete UI, copy, layout, and asset decisions.</p>
+          </div>
+          <div>
+            <strong>Build verification</strong>
+            <p>Check pages and app builds in the browser, simulator, or device before calling work done.</p>
+          </div>
+          <div>
+            <strong>Release safety</strong>
+            <p>Use backups, clean commits, live checks, and rollback paths for public updates.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
