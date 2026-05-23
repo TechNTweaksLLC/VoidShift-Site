@@ -1,0 +1,29 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * urw-din:
+ *   - http://typekit.com/eulas/00000000000000007735a83d
+ *   - http://typekit.com/eulas/00000000000000007735a849
+ *
+ * © 2009-2026 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2021-01-27 11:33:24 UTC"}*/
+
+@font-face {
+font-family:"urw-din";
+src:url("/local-fonts/assets/use.typekit.net-93bf3f0a0f7e.woff2") format("woff2"),url("/local-fonts/assets/use.typekit.net-b1fdb9f719c6.woff") format("woff"),url("/local-fonts/assets/use.typekit.net-621395243945.otf") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"urw-din";
+src:url("/local-fonts/assets/use.typekit.net-0be26918a914.woff2") format("woff2"),url("/local-fonts/assets/use.typekit.net-f14f260508b8.woff") format("woff"),url("/local-fonts/assets/use.typekit.net-e5dc3b0f3df9.otf") format("opentype");
+font-display:auto;font-style:normal;font-weight:600;font-stretch:normal;
+}
+
+.tk-kepler-std-caption { font-family: "kepler-std-caption",serif; }
+.tk-kepler-std-display { font-family: "kepler-std-display",serif; }
+.tk-urw-din { font-family: "urw-din",sans-serif; }

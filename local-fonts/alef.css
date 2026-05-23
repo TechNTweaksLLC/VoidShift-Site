@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Alef';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/local-fonts/assets/fonts.gstatic.com-27d892de4771.ttf") format("truetype");
+}

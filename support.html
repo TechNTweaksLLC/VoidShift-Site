@@ -1,96 +1,44 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Support | Tech N Tweaks</title>
-  <meta name="description" content="Support page for Tech N Tweaks LLC projects including VoidShift.">
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Rajdhani:wght@500;600;700&display=swap");
-    :root { color-scheme: dark; --bg: #030303; --text: #f8f4ee; --muted: #b7b1aa; --line: rgba(255,255,255,0.15); --cyan: #6ff3ff; --mx: 0px; --my: 0px; --display: "Oxanium", ui-sans-serif, system-ui, sans-serif; --body: "Rajdhani", ui-sans-serif, system-ui, sans-serif; }
-    * { box-sizing: border-box; }
-    body { position: relative; margin: 0; min-height: 100vh; color: var(--text); background: radial-gradient(circle at 50% 16%, rgba(111,243,255,0.18), transparent 24rem), radial-gradient(circle at 16% 62%, rgba(168,255,122,0.13), transparent 26rem), radial-gradient(circle at 84% 68%, rgba(255,103,216,0.16), transparent 28rem), var(--bg); font-family: var(--body); line-height: 1.6; overflow-x: hidden; }
-    body::before { content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none; background: radial-gradient(circle, rgba(111,243,255,0.95) 0 1.25px, transparent 1.9px), radial-gradient(circle, rgba(255,103,216,0.82) 0 1.35px, transparent 2px), radial-gradient(circle, rgba(168,255,122,0.86) 0 1.3px, transparent 2px), radial-gradient(circle, rgba(255,215,95,0.78) 0 1.15px, transparent 1.9px); background-position: 0 0, 38px 61px, 91px 22px; background-size: 180px 180px, 260px 260px, 330px 330px, 220px 220px; opacity: 0.92; animation: star-drift 48s linear infinite; transform: translate3d(var(--mx), var(--my), 0); transition: transform 260ms ease-out; }
-    body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.026) 0 1px, transparent 1px 7px), linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px), radial-gradient(circle at calc(50% + var(--mx)) calc(18% + var(--my)), rgba(111,243,255,0.26), transparent 32rem), radial-gradient(circle at calc(84% - var(--mx)) calc(64% - var(--my)), rgba(255,103,216,0.22), transparent 36rem), radial-gradient(circle at calc(18% + var(--mx)) calc(70% - var(--my)), rgba(168,255,122,0.16), transparent 34rem); background-size: auto, 52px 52px, 52px 52px, auto, auto, auto; mask-image: radial-gradient(circle at center, #000 0%, rgba(0,0,0,0.8) 42%, transparent 88%); }
-    @keyframes star-drift { from { background-position: 0 0, 38px 61px, 91px 22px; } to { background-position: 0 520px, -180px 700px, 220px 620px, 90px 580px; } }
-    a { color: var(--cyan); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { width: min(920px, calc(100% - 36px)); margin: 0 auto; }
-    .nav { border-bottom: 1px solid var(--line); background: rgba(3,3,3,0.78); backdrop-filter: blur(18px); }
-    .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--text); font-family: var(--display); font-weight: 900; }
-    .brand img { width: 46px; height: 46px; object-fit: contain; }
-    nav { display: flex; gap: 16px; color: var(--muted); font-family: var(--display); font-weight: 800; }
-    nav a { padding: 8px 10px; border-radius: 999px; }
-    nav a:hover, nav a:focus-visible { color: var(--text); background: rgba(255,255,255,0.08); text-decoration: none; outline: none; }
-    main { padding: 42px 0 64px; }
-    article { position: relative; overflow: hidden; padding: clamp(22px, 4vw, 38px); border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,0.06); }
-    article::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; border-radius: inherit; background: linear-gradient(90deg, transparent, rgba(111,243,255,0.25), transparent) top / 100% 2px no-repeat, repeating-linear-gradient(180deg, rgba(255,255,255,0.024) 0 1px, transparent 1px 8px); opacity: 0.72; }
-    article > * { position: relative; z-index: 1; }
-    h1 { margin: 0; font-family: var(--display); font-size: clamp(42px, 8vw, 72px); line-height: 1; letter-spacing: 0; }
-    h2 { margin-top: 30px; font-family: var(--display); letter-spacing: 0; }
-    p, li { color: var(--muted); font-weight: 700; }
-    .eyebrow { color: var(--cyan); font-family: var(--display); font-size: 13px; font-weight: 950; letter-spacing: 0; text-transform: uppercase; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-    .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 0 18px; color: var(--text); border: 2px solid rgba(111,243,255,0.76); background: rgba(255,255,255,0.035); box-shadow: inset 0 0 18px rgba(111,243,255,0.12), 0 0 16px rgba(111,243,255,0.18); font-family: var(--display); font-weight: 900; }
-    .button:hover, .button:focus-visible { border-color: rgba(168,255,122,0.9); box-shadow: inset 0 0 22px rgba(111,243,255,0.20), 0 0 22px rgba(111,243,255,0.28); text-decoration: none; outline: none; }
-    footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 30px 0 44px; border-top: 1px solid var(--line); color: rgba(248,244,238,0.45); font-family: var(--display); font-size: 13px; font-weight: 750; }
-    footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px; }
-    @media (max-width: 640px) { .nav-inner, footer { align-items: flex-start; flex-direction: column; padding: 14px 0; } nav { flex-wrap: wrap; } footer nav { justify-content: flex-start; } }
-  </style>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<title>Support | Tech N Tweaks</title>
+	<meta name="description" content="Contact Tech N Tweaks support.">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Tech N Tweaks">
+	<meta property="og:title" content="Support | Tech N Tweaks">
+	<meta property="og:description" content="Contact Tech N Tweaks support.">
+	<meta property="og:url" content="https://techntweaks.com/support.html">
+	<link rel="icon" href="/favicon.ico">
+	<link rel="stylesheet" href="/assets/css/yakuhanjp-noto.min.css">
+	<link href="/local-fonts/noto-sans-jp.css" rel="stylesheet">
+	<link href="/local-fonts/alef.css" rel="stylesheet">
+	<link href="/local-fonts/cormorant.css" rel="stylesheet">
+	<link rel="stylesheet" href="/local-fonts/typekit-rjz2hfg.css">
+	<link rel="stylesheet" href="/assets/css/base.css">
 </head>
-<body>
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="index.html" aria-label="Tech N Tweaks home">
-        <img src="assets/TNTs Logo.png" alt="Tech N Tweaks logo">
-        <span>Tech N Tweaks</span>
-      </a>
-      <nav aria-label="Main navigation">
-        <a href="index.html#work">Work</a>
-        <a href="index.html#voidshift">VoidShift</a>
-        <a href="agentic-workflows.html">AI Workflows</a>
-        <a href="index.html#about">About</a>
-      </nav>
-    </div>
-  </header>
-  <main class="wrap">
-    <article>
-      <p class="eyebrow">Support</p>
-      <h1>Tech N Tweaks Support</h1>
-      <p>For project support, bug reports, purchase questions, privacy questions, or business inquiries, contact Tech N Tweaks LLC.</p>
-      <div class="actions">
-        <a class="button" href="index.html">Back Home</a>
-        <a class="button" href="privacy.html">Privacy Policy</a>
-      </div>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:support@techntweaks.com">support@techntweaks.com</a></p>
-      <h2>VoidShift Troubleshooting</h2>
-      <ul>
-        <li>Make sure your device is running the latest available iOS version.</li>
-        <li>Close and reopen VoidShift if the game appears frozen or progress does not update correctly.</li>
-        <li>Use Restore Purchases in the app settings if a previously purchased item does not appear.</li>
-        <li>Sign in to Game Center in iOS Settings if leaderboards are unavailable.</li>
-      </ul>
-      <h2>Privacy</h2>
-      <p>Read the <a href="privacy.html">VoidShift Privacy Policy</a> for information about data, purchases, analytics, and Game Center.</p>
-    </article>
-  </main>
-  <footer class="wrap">
-    <span>Copyright 2026 Tech N Tweaks LLC. All rights reserved.</span>
-    <nav aria-label="Footer navigation">
-      <a href="index.html">Home</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="mailto:support@techntweaks.com">Email</a>
-    </nav>
-  </footer>
-  <script>
-    window.addEventListener("pointermove", (event) => {
-      const x = (event.clientX / window.innerWidth - 0.5) * 18;
-      const y = (event.clientY / window.innerHeight - 0.5) * 14;
-      document.documentElement.style.setProperty("--mx", `${x}px`);
-      document.documentElement.style.setProperty("--my", `${y}px`);
-    }, { passive: true });
-  </script>
+<body class="voidshift-policy-body">
+	<div id="bg-line-set" class="bg-line-set" aria-hidden="true">
+		<div class="bg-line1"></div>
+		<div class="bg-line2"></div>
+		<div class="bg-line3"></div>
+		<div class="bg-line4"></div>
+		<div class="bg-line5"></div>
+	</div>
+	<a id="head-logo" class="head-logo" href="/" aria-label="Tech N Tweaks home"></a>
+	<nav class="privacy-menu en" aria-label="Tech N Tweaks navigation">
+		<a href="mailto:support@TechNTweaks.com">Contact</a><span>/</span><a href="/works/games/">VoidShift</a><span>/</span><a href="/">Projects</a>
+	</nav>
+	<main class="voidshift-policy-page">
+		<header class="voidshift-policy-hero">
+			<p class="voidshift-policy-kicker en-b">TECH N TWEAKS</p>
+			<h1 class="en-b">Support</h1>
+			<p>For VoidShift support, Tech N Tweaks project questions, or general help, email us below.</p>
+			<p class="voidshift-policy-back en-b"><a href="mailto:support@TechNTweaks.com">support@TechNTweaks.com</a></p>
+		</header>
+	</main>
 </body>
 </html>
