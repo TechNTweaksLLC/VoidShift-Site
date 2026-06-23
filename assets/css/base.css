@@ -969,22 +969,35 @@ img{
 	font-size:12px;
 	letter-spacing:0.08em;
 }
-.detail-description .voidshift-kicker{
+.detail-description .voidshift-kicker,
+.detail-description .downloads-kicker,
+.detail-description .policy-kicker{
 	margin-bottom:16px;
 	font-size:12px;
 	line-height:1;
 	color:#55f3ff;
 	letter-spacing:0.18em;
 }
-.detail-description .voidshift-lede{
+.detail-description .voidshift-lede,
+.detail-description .downloads-lede,
+.detail-description .policy-lede{
 	margin-bottom:24px;
 	font-size:22px;
 	line-height:36px;
 	color:#fff;
 }
-.detail-description .voidshift-copy{
+.detail-description .voidshift-copy,
+.detail-description .downloads-copy,
+.detail-description .policy-copy{
 	margin-bottom:30px;
 	color:rgba(255,255,255,0.78);
+}
+.detail-description .downloads-copy,
+.detail-description .policy-copy{
+	letter-spacing:0.04em;
+	white-space:normal;
+	overflow-wrap:anywhere;
+	word-break:normal;
 }
 .voidshift-actions{
 	display:flex;
@@ -1016,22 +1029,33 @@ img{
 	background:rgba(255,77,214,0.08);
 	border-color:rgba(255,77,214,0.52);
 }
-.voidshift-credit{
+.voidshift-credit,
+.downloads-credit,
+.policy-credit{
 	display:none !important;
 }
 .voidshift-description,
 .agentic-description,
-.software-description{
+.software-description,
+.downloads-description,
+.policy-description{
 	width:min(82vw, 980px) !important;
 	margin-left:max(-490px, -41vw) !important;
 }
-.voidshift-layout{
+.voidshift-layout,
+.downloads-layout{
 	display:grid;
 	grid-template-columns:minmax(300px, 0.92fr) minmax(300px, 1.08fr);
 	gap:34px;
 	align-items:start;
 }
-.voidshift-copy-panel p:last-child{
+.policy-layout{
+	display:block;
+	max-width:760px;
+}
+.voidshift-copy-panel p:last-child,
+.downloads-copy-panel p:last-child,
+.policy-copy-panel p:last-child{
 	margin-bottom:0;
 }
 .voidshift-gallery{
@@ -1050,6 +1074,64 @@ img{
 	border-radius:6px;
 	background:#02030a;
 	box-shadow:0 0 26px rgba(85,243,255,0.12), 0 0 34px rgba(255,77,214,0.1);
+}
+.downloads-file-panel,
+.policy-sections{
+	margin-top:4px;
+	border-top:1px solid rgba(85,243,255,0.24);
+}
+.policy-sections{
+	margin-top:38px;
+}
+.downloads-meta-list{
+	display:grid;
+	gap:0;
+	margin:0;
+}
+.downloads-meta-list div,
+.policy-section{
+	padding:18px 0;
+	border-bottom:1px solid rgba(255,255,255,0.12);
+}
+.downloads-meta-list dt,
+.policy-section h2{
+	margin:0 0 8px;
+	color:#55f3ff;
+	font-size:11px;
+	line-height:18px;
+	letter-spacing:0.16em;
+	text-transform:uppercase;
+}
+.downloads-meta-list dd{
+	margin:0;
+	color:rgba(255,255,255,0.84);
+	font-size:13px;
+	line-height:24px;
+	letter-spacing:0.02em;
+	overflow-wrap:anywhere;
+	word-break:normal;
+}
+.downloads-meta-list code{
+	display:block;
+	color:rgba(255,255,255,0.92);
+	font-family:Menlo, Consolas, monospace;
+	font-size:11px;
+	letter-spacing:0;
+	overflow-wrap:anywhere;
+	word-break:break-all;
+}
+.policy-section p{
+	margin:0;
+	color:rgba(255,255,255,0.76);
+	font-size:13px;
+	line-height:26px;
+	letter-spacing:0.025em;
+	white-space:normal;
+	overflow-wrap:anywhere;
+	word-break:normal;
+}
+.policy-section p + p{
+	margin-top:8px;
 }
 .voidshift-policy-body{
 	min-height:100vh;
@@ -1471,7 +1553,9 @@ img{
 		font-size:12px;
 		line-height:100px;
 	}
-	.detail-description .voidshift-lede{
+	.detail-description .voidshift-lede,
+	.detail-description .downloads-lede,
+	.detail-description .policy-lede{
 		font-size:18px;
 		line-height:30px;
 	}
@@ -1485,13 +1569,17 @@ img{
 	}
 	.voidshift-description,
 	.agentic-description,
-	.software-description{
+	.software-description,
+	.downloads-description,
+	.policy-description{
 		width:84% !important;
 		margin-left:-42% !important;
 	}
 	.voidshift-layout,
 	.agentic-layout,
-	.software-layout{
+	.software-layout,
+	.downloads-layout,
+	.policy-layout{
 		grid-template-columns:1fr;
 		gap:24px;
 	}
