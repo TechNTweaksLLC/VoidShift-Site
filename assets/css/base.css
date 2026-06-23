@@ -1149,6 +1149,137 @@ img{
 	line-height:44px;
 	letter-spacing:0.08em;
 }
+.downloads-body{
+	background:
+		radial-gradient(circle at 76% 18%, rgba(85,243,255,0.14), transparent 34%),
+		radial-gradient(circle at 12% 74%, rgba(255,77,214,0.13), transparent 32%),
+		#02030a;
+}
+.downloads-page{
+	width:min(1040px, calc(100% - 96px));
+}
+.downloads-hero{
+	margin-bottom:44px;
+}
+.downloads-section{
+	padding:34px 0 0;
+	border-top:1px solid rgba(255,255,255,0.14);
+}
+.downloads-section-heading{
+	display:flex;
+	align-items:end;
+	justify-content:space-between;
+	gap:24px;
+	margin-bottom:22px;
+}
+.downloads-eyebrow{
+	margin:0;
+	font-size:12px;
+	line-height:1;
+	color:#55f3ff;
+	letter-spacing:0.2em;
+}
+.downloads-section-heading h2{
+	margin:0;
+	font-size:22px;
+	line-height:1;
+	letter-spacing:0.12em;
+}
+.download-card{
+	display:grid;
+	grid-template-columns:minmax(280px, 0.88fr) minmax(320px, 1.12fr);
+	gap:28px;
+	padding:30px;
+	border:1px solid rgba(85,243,255,0.22);
+	border-radius:8px;
+	background:linear-gradient(135deg, rgba(85,243,255,0.08), rgba(255,77,214,0.05) 52%, rgba(255,255,255,0.035));
+	box-shadow:0 0 34px rgba(85,243,255,0.1), 0 0 42px rgba(255,77,214,0.08);
+}
+.download-card-kicker{
+	margin:0 0 18px;
+	font-size:12px;
+	line-height:1;
+	color:#ff4dd6;
+	letter-spacing:0.2em;
+}
+.download-card h3{
+	margin:0 0 16px;
+	font-size:clamp(30px, 5vw, 56px);
+	line-height:0.98;
+	letter-spacing:0.06em;
+}
+.download-card p{
+	max-width:480px;
+	margin:0;
+	color:rgba(255,255,255,0.78);
+	font-size:15px;
+	line-height:29px;
+	letter-spacing:0.08em;
+}
+.download-tags{
+	display:flex;
+	flex-wrap:wrap;
+	gap:8px;
+	margin-top:24px;
+}
+.download-tags span{
+	display:inline-flex;
+	align-items:center;
+	min-height:30px;
+	padding:0 11px;
+	border:1px solid rgba(255,255,255,0.14);
+	border-radius:999px;
+	background:rgba(255,255,255,0.045);
+	color:rgba(255,255,255,0.78);
+	font-size:11px;
+	line-height:30px;
+	letter-spacing:0.12em;
+}
+.download-card-meta dl{
+	display:grid;
+	gap:14px;
+	margin:0 0 24px;
+}
+.download-card-meta dl div{
+	display:grid;
+	grid-template-columns:92px minmax(0, 1fr);
+	gap:18px;
+	padding-bottom:14px;
+	border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.download-card-meta dt{
+	color:rgba(85,243,255,0.78);
+	font-size:11px;
+	line-height:18px;
+	letter-spacing:0.16em;
+	text-transform:uppercase;
+}
+.download-card-meta dd{
+	min-width:0;
+	margin:0;
+	color:rgba(255,255,255,0.84);
+	font-size:13px;
+	line-height:22px;
+	letter-spacing:0.06em;
+	overflow-wrap:anywhere;
+}
+.download-card-meta code{
+	color:#fff;
+	font-family:Menlo, Consolas, monospace;
+	font-size:11px;
+	letter-spacing:0;
+}
+.download-file-button{
+	width:max-content;
+	text-transform:uppercase;
+}
+.downloads-note{
+	margin-top:34px;
+	color:rgba(255,255,255,0.58);
+	font-size:13px;
+	line-height:26px;
+	letter-spacing:0.08em;
+}
 .agentic-credit{
 	display:none !important;
 }
@@ -1396,6 +1527,35 @@ img{
 	}
 	.voidshift-policy-section{
 		padding:24px 0;
+	}
+	.downloads-page{
+		width:min(86%, 920px);
+	}
+	.downloads-section-heading,
+	.download-card,
+	.download-card-meta dl div{
+		grid-template-columns:1fr;
+	}
+	.downloads-section-heading{
+		align-items:start;
+		gap:10px;
+	}
+	.download-card{
+		gap:24px;
+		padding:22px;
+	}
+	.download-card h3{
+		font-size:clamp(30px, 11vw, 44px);
+	}
+	.download-card p{
+		font-size:13px;
+		line-height:27px;
+	}
+	.download-card-meta dl div{
+		gap:6px;
+	}
+	.download-file-button{
+		width:100%;
 	}
 }
 
